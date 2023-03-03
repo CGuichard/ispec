@@ -4,6 +4,13 @@
 # virtualenv
 /.venv*
 /venv*
+/.tox
 
 # Distribution / packaging
 /dist
+
+# Unit test / coverage reports
+/.pytest_cache
+/tests-reports
+/.coverage
+/.coverage.*

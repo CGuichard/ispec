@@ -75,3 +75,58 @@ fallback-version = "0.0.1"
 [tool.hatch.version.raw-options]
 version_scheme = "python-simplified-semver"
 local_scheme = "no-local-version"
+
+# -----------------------------------------------
+# Tests
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = [
+    "src",
+    "tests",
+]
+
+addopts = [
+    "--show-capture=no",
+    "--cov",
+    "--cov-config=pyproject.toml",
+    "--cov-report=html",
+    "--cov-report=term-missing",
+    "--cov-report=xml",
+    "--doctest-modules",
+    "--html=tests-reports/index.html",
+    "--self-contained-html",
+    "-v",
+]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = [
+    "src",
+]
+omit = [
+    "tests/*",
+]
+
+[tool.coverage.paths]
+source = [
+    "src",
+]
+
+[tool.coverage.report]
+fail_under = 90
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
+
+[tool.coverage.html]
+directory = "tests-reports/coverage"
+
+[tool.coverage.xml]
+output = "tests-reports/coverage.xml"
