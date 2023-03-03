@@ -43,6 +43,20 @@ dynamic = ["version"]
 # -----------------------------------------------
 # Build & Packaging
 
+[project.optional-dependencies]
+dev = [
+    "build~=0.10",
+    "hatch~=1.6",
+    "tox~=4.4",
+    "twine~=4.0",
+    "wheel~=0.38",
+]
+test = [
+    "pytest-cov~=4.0",
+    "pytest-html~=3.2",
+    "pytest~=7.2",
+]
+
 [tool.hatch.build]
 only-packages = true
 skip-excluded-dirs = true
