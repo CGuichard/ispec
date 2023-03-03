@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+# -----------------------------------------------
+# Package infos
+
+[project]
+name = "ispec"
+description = "Interface Specification"
+authors = [
+    { name = "Clément GUICHARD", email = "clement.guichard0@gmail.com" },
+]
+readme = "README.rst"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+keywords = [
+    "python",
+    "interface",
+    "specification",
+]
+classifiers = [
+    "Development Status :: 7 - Inactive",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dynamic = ["version"]
+
+[project.urls]
+"Homepage" = "https://github.com/CGuichard/ispec"
+"Source" = "https://github.com/CGuichard/ispec"
+"Bug Tracker" = "https://github.com/CGuichard/ispec/issues"
+
+# -----------------------------------------------
+# Build & Packaging
+
+[tool.hatch.build]
+only-packages = true
+skip-excluded-dirs = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ispec"]
+sources = ["src"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.version]
+source = "vcs"
+fallback-version = "0.0.1"
+
+[tool.hatch.version.raw-options]
+version_scheme = "python-simplified-semver"
+local_scheme = "no-local-version"
