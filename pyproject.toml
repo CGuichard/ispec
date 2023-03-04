@@ -136,3 +136,20 @@ directory = "tests-reports/coverage"
 
 [tool.coverage.xml]
 output = "tests-reports/coverage.xml"
+
+# -----------------------------------------------
+# Formatters
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+
+[tool.autoflake]
+check = false
+in-place = true
+remove-all-unused-imports = true
+ignore-init-module-imports = true
+remove-duplicate-keys = true
+remove-unused-variables = true
