@@ -2,7 +2,7 @@
 
 
 def test_package_import():
-    import ispec
+    import ispec  # noqa
 
 
 def test_package_version_is_defined():
