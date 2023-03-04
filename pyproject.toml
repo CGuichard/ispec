@@ -56,6 +56,12 @@ test = [
     "pytest-html~=3.2",
     "pytest~=7.2",
 ]
+format = [
+    "autoflake~=2.0",
+    "black~=23.1",
+    "eradicate~=2.2",
+    "isort~=5.12",
+]
 
 [tool.hatch.build]
 only-packages = true
