@@ -14,3 +14,6 @@
 /tests-reports
 /.coverage
 /.coverage.*
+
+# Lint
+/.mypy_cache

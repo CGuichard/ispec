@@ -209,3 +209,100 @@ remove-all-unused-imports = true
 ignore-init-module-imports = true
 remove-duplicate-keys = true
 remove-unused-variables = true
+
+# -----------------------------------------------
+# Linters
+
+[tool.flake8]
+count = false
+max-line-length = 88
+max-doc-length = 100
+extend-ignore = [
+    "ANN101",
+    "ANN102",
+    "D107",
+    "D203",
+    "D213",
+    "R504",
+    "W503",
+]
+per-file-ignores = [
+    "__init__.py:F401",
+]
+# flake8-annotations-complexity
+max-annotations-complexity = 4
+# flake8-cognitive-complexity
+max-cognitive-complexity = 10
+# flake8-docstrings
+docstring-convention = "all"
+# flake8-eradicate
+eradicate-aggressive = true
+# flake8-expression-complexity
+max-expression-complexity = 7
+# flake8-functions
+max-function-length = 20
+max-parameters-amount = 6
+max-returns-amount = 4
+# flake8-literal
+literal-inline-quotes = "double"
+literal-multiline-quotes = "double"
+literal-docstring-quotes = "double"
+# flake8-spellcheck
+spellcheck-targets = "comments"
+# flake8-variables-names
+use-varnames-strict-mode = true
+# mccabe
+max-complexity = 10
+
+[tool.pylint.main]
+fail-under = 10
+jobs = 0
+
+[tool.pylint.basic]
+module-naming-style = "snake_case"
+attr-naming-style = "snake_case"
+const-naming-style = "UPPER_CASE"
+function-naming-style = "snake_case"
+argument-naming-style = "snake_case"
+class-naming-style = "PascalCase"
+class-const-naming-style = "UPPER_CASE"
+class-attribute-naming-style = "snake_case"
+method-naming-style = "snake_case"
+good-names = ["e", "i", "j", "k", "x", "y", "z", "_"]
+
+[tool.pylint.design]
+max-args = 5
+max-attributes = 7
+max-bool-expr = 5
+max-branches = 12
+max-locals = 15
+max-parents = 7
+max-public-methods = 20
+max-returns = 4
+max-statements = 50
+min-public-methods = 2
+
+[tool.pylint.format]
+max-line-length = 88
+max-module-lines = 1000
+
+[tool.pylint.logging]
+logging-format-style = "new"
+
+[tool.pylint.reports]
+score = false
+
+[tool.mypy]
+strict = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+warn_unreachable = true
+
+[tool.bandit]
+skips = ["B101"]
+
+[tool.vulture]
+min_confidence = 90
+sort_by_size = true
