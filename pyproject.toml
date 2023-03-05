@@ -118,6 +118,9 @@ lint = [
     "vulture~=2.7",
     "xenon~=0.9",
 ]
+security = [
+    "safety~=2.3",
+]
 
 [tool.hatch.build]
 only-packages = true
