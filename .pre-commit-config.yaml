@@ -56,3 +56,11 @@ repos:
         types_or: [python]
         language: python
         additional_dependencies: [".[dev]"]
+      - id: test
+        name: test
+        entry: tox
+        always_run: true
+        pass_filenames: false
+        language: python
+        additional_dependencies: [".[dev]"]
+        stages: [push]
