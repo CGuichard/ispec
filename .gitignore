@@ -17,3 +17,6 @@
 
 # Lint
 /.mypy_cache
+
+# Docs
+/docs/build
