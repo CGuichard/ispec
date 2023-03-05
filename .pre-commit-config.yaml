@@ -72,3 +72,11 @@ repos:
         language: python
         additional_dependencies: [".[dev]"]
         stages: [push]
+      - id: docs
+        name: docs
+        entry: tox -e docs
+        always_run: true
+        pass_filenames: false
+        language: python
+        additional_dependencies: [".[dev]"]
+        stages: [push]
