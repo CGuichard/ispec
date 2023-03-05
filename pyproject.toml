@@ -47,6 +47,7 @@ dynamic = ["version"]
 dev = [
     "build~=0.10",
     "hatch~=1.6",
+    "pre-commit~=3.1",
     "tox~=4.4",
     "twine~=4.0",
     "wheel~=0.38",
