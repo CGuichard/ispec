@@ -39,3 +39,20 @@ repos:
       - id: commitizen-branch
         args: [--rev-range, HEAD]
         stages: [push]
+
+  - repo: local
+    hooks:
+      - id: format
+        name: format
+        entry: tox -e format --
+        files: "^(src|tests)"
+        types_or: [python]
+        language: python
+        additional_dependencies: [".[dev]"]
+      - id: lint
+        name: lint
+        entry: tox -e lint --
+        files: "^src"
+        types_or: [python]
+        language: python
+        additional_dependencies: [".[dev]"]
