@@ -64,3 +64,11 @@ repos:
         language: python
         additional_dependencies: [".[dev]"]
         stages: [push]
+      - id: security
+        name: security
+        entry: tox -e security
+        always_run: true
+        pass_filenames: false
+        language: python
+        additional_dependencies: [".[dev]"]
+        stages: [push]
