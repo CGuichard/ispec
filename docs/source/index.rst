@@ -27,6 +27,7 @@ Getting started
    :maxdepth: 2
    :caption: For Developers/Contributors
 
+   developers/api_reference/index
    developers/contributing
    developers/license
    GitHub Repository <https://github.com/CGuichard/ispec>
