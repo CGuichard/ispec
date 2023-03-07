@@ -10,4 +10,5 @@ The API Reference is intended for developers, and provides an overview of all pu
    decorators
    exceptions
    inspect
+   mutators
    validators
