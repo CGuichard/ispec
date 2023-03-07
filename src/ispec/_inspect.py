@@ -9,6 +9,16 @@ import inspect
 from ._types import AnyCallable, Class, Method
 
 
+def is_bound(method: Method) -> bool:
+    """Return True if method is a bound-method, otherwise False."""
+    return hasattr(method, "__self__")
+
+
+def is_abstract(method: Method) -> bool:
+    """Return True if method is an abstract method (abc), otherwise False."""
+    return getattr(method, "__isabstractmethod__", False)
+
+
 def get_signature(obj: AnyCallable) -> inspect.Signature:
     """Encapsulate inspect.signature."""
     return inspect.signature(obj)
