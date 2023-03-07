@@ -2,6 +2,8 @@
 
 from importlib.metadata import PackageNotFoundError, version
 
+from .decorators import typehint
+
 try:
     __version__ = version("ispec")
 except PackageNotFoundError:  # pragma: no cover
