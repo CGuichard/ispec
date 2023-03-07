@@ -13,6 +13,13 @@ ISpec - Interface Specification
    `typing <https://docs.python.org/3/library/typing.html>`__.
 
 ISpec is a project aimed to create a simple way of defining interfaces.
+What it does is use the `abc <https://docs.python.org/3/library/abc.html>`__
+module, make your class inherit ``abc.ABC``, apply the ``abc.abstractmethod``
+decorator, and ensure the function signature uses
+`type hints <https://peps.python.org/pep-0484/>`__ for parameters and returns.
+With this, a class that implements an ISpec interface can't be instantiated
+if it doesn't define every function of the interface, and the interface must
+declare type hints to improve readability.
 
 Getting started
 ===============
@@ -22,6 +29,7 @@ Getting started
    :caption: For Users
 
    users/installation
+   users/usage
 
 .. toctree::
    :maxdepth: 2

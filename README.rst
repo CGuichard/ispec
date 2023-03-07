@@ -19,6 +19,13 @@ ISpec - Interface Specification
    `typing <https://docs.python.org/3/library/typing.html>`__.
 
 ISpec is a project aimed to create a simple way of defining interfaces.
+What it does is use the `abc <https://docs.python.org/3/library/abc.html>`__
+module, make your class inherit ``abc.ABC``, apply the ``abc.abstractmethod``
+decorator, and ensure the function signature uses
+`type hints <https://peps.python.org/pep-0484/>`__ for parameters and returns.
+With this, a class that implements an ISpec interface can't be instantiated
+if it doesn't define every function of the interface, and the interface must
+declare type hints to improve readability.
 
 Table of Contents
 -----------------
@@ -30,6 +37,7 @@ Table of Contents
    -  `Getting started <#getting-started>`__
 
       -  `Installation <#installation>`__
+      -  `Usage <#usage>`__
 
    -  `Contributing <#contributing>`__
    -  `License <#license>`__
@@ -44,6 +52,46 @@ Installation
 
    pip install git+https://github.com/CGuichard/ispec.git
    # pip install git+https://github.com/CGuichard/ispec.git@<tag>
+
+Usage
+~~~~~
+
+Simple example:
+
+.. code:: python
+
+    from ispec import ispec
+
+
+    @ispec
+    class MyInterface:
+        def method_dummy(self, a: str) -> str:
+            ...
+
+        @staticmethod
+        def static_method_dummy(b: str) -> str:
+            ...
+
+        @classmethod
+        def class_method_dummy(cls, c: str) -> str:
+            ...
+
+
+    class A(MyInterface):
+        def method_dummy(self, a: str) -> str:
+            print(f"method {a=}")
+
+        @staticmethod
+        def static_method_dummy(b: str) -> str:
+            print(f"static method {b=}")
+
+        @classmethod
+        def class_method_dummy(cls, c: str) -> str:
+            print(f"class method {c=}")
+
+
+    mi: MyInterface = A()
+
 
 Contributing
 ------------
