@@ -2,7 +2,7 @@
 
 from importlib.metadata import PackageNotFoundError, version
 
-from .decorators import abstractclass, typehint
+from .decorators import abstractclass, ispec, typehint
 
 try:
     __version__ = version("ispec")

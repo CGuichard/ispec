@@ -11,6 +11,11 @@ from ._types import Class
 from ._validators import validate_class_typehint
 
 
+def ispec(cls: Class) -> Class:
+    """Class decorator that apply @abstractclass and @typehint on a decorated class."""
+    return abstractclass(typehint(cls))
+
+
 def typehint(cls: Class) -> Class:
     """Class decorator that check if the decorated class is correctly type hinted."""
     validate_class_typehint(cls)
