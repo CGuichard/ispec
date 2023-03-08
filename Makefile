@@ -4,13 +4,16 @@ PYTHON=python3
 PIP=$(PYTHON) -mpip
 TOX=$(PYTHON) -mtox
 
-.PHONY: default clean build install install-dev
+.PHONY: default release clean build install install-dev
 .PHONY: format lint test docs security
 .PHONY: pre-commit pipeline test-report docs-serve
 
 # ======================================================= #
 
 default: pipeline
+
+release: ## Bump version, create tag and update CHANGELOG.
+	@$(PYTHON) -mcommitizen bump --changelog
 
 build: ## Build wheel and tar.gz in 'dist/'.
 	@$(PYTHON) -mbuild
