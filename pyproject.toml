@@ -150,6 +150,11 @@ fallback-version = "0.0.1"
 version_scheme = "python-simplified-semver"
 local_scheme = "no-local-version"
 
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "1.0.0"
+tag_format = "v$version"
+
 # -----------------------------------------------
 # Tests
 
