@@ -54,8 +54,7 @@ def make_method_abstract(method: Method) -> Method:
         # the decorators in the good order.
         origin_method = cast(Method, getattr(method, "__func__", method))
         abstract_method = abstractmethod(origin_method)
-        abstract_class_method = classmethod(abstract_method)
-        _method = cast(Method, abstract_class_method)
+        _method = cast(Method, classmethod(abstract_method))
     else:
         _method = abstractmethod(method)
     return _method

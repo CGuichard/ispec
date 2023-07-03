@@ -19,7 +19,7 @@ def is_abstract(method: Method) -> bool:
     return getattr(method, "__isabstractmethod__", False)
 
 
-def get_signature(obj: AnyCallable) -> inspect.Signature:
+def get_signature(obj: AnyCallable) -> inspect.Signature:  # noqa: VNE002
     """Encapsulate inspect.signature."""
     return inspect.signature(obj)
 

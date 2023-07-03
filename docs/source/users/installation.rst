@@ -1,7 +1,7 @@
 Installation
 ============
 
-This project can be installed from its GitHub repository.
+This project can be installed from its source code.
 
 .. code:: bash
 

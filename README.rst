@@ -1,11 +1,11 @@
 ISpec - Interface Specification
 ===============================
 
-|GitHub| |Language| |Documentation| |Style| |Lint| |Security| |Stability| |Contributions|
+|License| |Language| |Documentation| |Style| |Lint| |Security| |Stability| |Contributions|
 
-`Pull Request <https://github.com/CGuichard/ispec/pulls>`__
-**·** `Bug Report <https://github.com/CGuichard/ispec/issues/new?template=bug_report.md>`__
-**·** `Feature Request <https://github.com/CGuichard/ispec/issues/new?template=feature_request.md>`__
+`Pull Request <https://github.com/CGuichard/ispec/pulls>`__ **·**
+`Bug Report <https://github.com/CGuichard/ispec/issues/new?template=bug_report.md>`__ **·**
+`Feature Request <https://github.com/CGuichard/ispec/issues/new?template=feature_request.md>`__
 
 .. warning::
 
@@ -30,17 +30,14 @@ declare type hints to improve readability.
 Table of Contents
 -----------------
 
--  `ISpec - Interface
-   Specification <#ispec---interface-specification>`__
+-  `Table of Contents <#table-of-contents>`__
+-  `Getting started <#getting-started>`__
 
-   -  `Table of Contents <#table-of-contents>`__
-   -  `Getting started <#getting-started>`__
+   -  `Installation <#installation>`__
+   -  `Usage <#usage>`__
 
-      -  `Installation <#installation>`__
-      -  `Usage <#usage>`__
-
-   -  `Contributing <#contributing>`__
-   -  `License <#license>`__
+-  `Contributing <#contributing>`__
+-  `License <#license>`__
 
 Getting started
 ---------------
@@ -107,8 +104,8 @@ License
 Distributed under the MIT License. See `LICENSE <LICENSE>`__ for more
 information.
 
-.. |GitHub| image:: https://img.shields.io/badge/license-MIT-yellow?style=flat-square
-   :target: https://github.com/CGuichard/ispec/blob/master/LICENSE
+.. |License| image:: https://img.shields.io/badge/license-MIT-yellow?style=flat-square
+   :target: ./LICENSE
 .. |Language| image:: https://img.shields.io/badge/language-Python-3776ab?style=flat-square&logo=Python
    :target: https://www.python.org/
 .. |Documentation| image:: https://img.shields.io/badge/documentation-sphinx-0a507a?style=flat-square
@@ -118,4 +115,4 @@ information.
 .. |Security| image:: https://img.shields.io/badge/security-bandit,%20safety-purple?style=flat-square
 .. |Stability| image:: https://img.shields.io/badge/stability-experimental-orange?style=flat-square
 .. |Contributions| image:: https://img.shields.io/badge/contributions-welcome-orange?style=flat-square
-   :target: https://github.com/CGuichard/ispec/blob/master/CONTRIBUTING.rst
+   :target: ./CONTRIBUTING.rst

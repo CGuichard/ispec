@@ -20,9 +20,10 @@ sys.path.insert(0, os.path.join(__location__, "../src"))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = metadata("ispec")["Name"]
-author = metadata("ispec")["Author-email"]
-version = metadata("ispec")["Version"]
+package = "ispec"
+project = metadata(package)["Name"]
+author = metadata(package)["Author-email"]
+version = metadata(package)["Version"]
 release = version
 copyright = f"2023, {author}"
 

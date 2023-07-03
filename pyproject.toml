@@ -12,7 +12,7 @@ authors = [
     { name = "Clément GUICHARD", email = "clement.guichard0@gmail.com" },
 ]
 readme = "README.rst"
-license = {file = "LICENSE"}
+license = { file = "LICENSE" }
 requires-python = ">=3.9"
 keywords = [
     "python",
@@ -40,23 +40,19 @@ dynamic = ["version"]
 "Source" = "https://github.com/CGuichard/ispec"
 "Bug Tracker" = "https://github.com/CGuichard/ispec/issues"
 
-# -----------------------------------------------
-# Build & Packaging
-
 [project.optional-dependencies]
 dev = [
     "build~=0.10",
-    "commitizen~=2.42",
-    "hatch~=1.6",
-    "pre-commit~=3.1",
-    "tox~=4.4",
-    "twine~=4.0",
-    "wheel~=0.38",
+    "commitizen==3.5.2",
+    "hatch~=1.7",
+    "pre-commit~=3.3",
+    "tox~=4.6",
 ]
 test = [
-    "pytest-cov~=4.0",
+    "pytest-cov~=4.1",
     "pytest-html~=3.2",
-    "pytest~=7.2",
+    "pytest-sugar~=0.9",
+    "pytest~=7.4",
 ]
 format = [
     "autoflake~=2.0",
@@ -120,31 +116,34 @@ lint = [
     "vulture~=2.7",
     "xenon~=0.9",
 ]
-security = [
-    "safety~=2.3",
-]
 docs = [
-    "sphinx-autodoc-typehints~=1.22",
+    "sphinx-autobuild==2021.3.14",
+    "sphinx-autodoc-typehints~=1.23",
     "sphinx-copybutton~=0.5",
     "sphinx-notfound-page~=0.8",
     "sphinx-rtd-theme~=1.2",
-    "sphinx~=6.1",
+    "sphinx~=6.2",
 ]
+security = [
+    "safety~=2.3",
+]
+
+[project.scripts]
+ispec = "ispec.cli:main"
+
+# -----------------------------------------------
+# Build & Packaging
 
 [tool.hatch.build]
 only-packages = true
 skip-excluded-dirs = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/ispec"]
-sources = ["src"]
 
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.version]
 source = "vcs"
-fallback-version = "0.0.1"
+fallback-version = "0.1.0"
 
 [tool.hatch.version.raw-options]
 version_scheme = "python-simplified-semver"
@@ -160,48 +159,45 @@ tag_format = "v$version"
 
 [tool.pytest.ini_options]
 minversion = "7.0"
+required_plugins = [
+    "pytest-cov",
+    "pytest-html",
+]
 testpaths = [
     "src",
     "tests",
 ]
-
 addopts = [
     "--show-capture=no",
+    "--doctest-modules",
+    # pytest-cov
     "--cov",
     "--cov-config=pyproject.toml",
-    "--cov-report=html",
     "--cov-report=term-missing",
+    "--cov-report=html",
     "--cov-report=xml",
-    "--doctest-modules",
+    # pytest-html
     "--html=tests-reports/index.html",
     "--self-contained-html",
-    "-v",
 ]
 
 [tool.coverage.run]
 branch = true
 parallel = true
-source = [
-    "src",
-]
 omit = [
     "tests/*",
-]
-
-[tool.coverage.paths]
-source = [
-    "src",
 ]
 
 [tool.coverage.report]
 fail_under = 90
 exclude_lines = [
     "pragma: no cover",
+    "def __str__",
     "def __repr__",
     "if self.debug",
+    "if __name__ == .__main__.:",
     "raise AssertionError",
     "raise NotImplementedError",
-    "if __name__ == .__main__.:",
 ]
 
 [tool.coverage.html]

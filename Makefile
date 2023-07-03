@@ -1,19 +1,20 @@
-##@ ISpec project Makefile, with utility commands for the project development lifecycle.
+##@ Project Makefile, with utility commands for the project development lifecycle.
 
 PYTHON=python3
 PIP=$(PYTHON) -mpip
 TOX=$(PYTHON) -mtox
+PRE_COMMIT=$(PYTHON) -mpre_commit
 
-.PHONY: default release clean build install install-dev
-.PHONY: format lint test docs security
-.PHONY: pre-commit pipeline test-report docs-serve
+.PHONY: default help release install install-dev build
+.PHONY: test format lint docs docs-live security
+.PHONY: clean report serve pipeline pre-commit
 
 # ======================================================= #
 
 default: pipeline
 
 release: ## Bump version, create tag and update CHANGELOG.
-	@$(PYTHON) -mcommitizen bump --changelog
+	@$(PYTHON) -mcommitizen bump --yes --annotated-tag --changelog
 
 build: ## Build wheel and tar.gz in 'dist/'.
 	@$(PYTHON) -mbuild
@@ -28,7 +29,7 @@ format: ## Format python code.
 	@$(TOX) -e $@
 
 lint: ## Lint python source code.
-	@$(TOX) -e $@
+	@$(PRE_COMMIT) run --files $(shell find src -name "*.py")
 
 test: ## Invoke pytest to run automated tests.
 	@$(TOX)
@@ -36,14 +37,11 @@ test: ## Invoke pytest to run automated tests.
 docs: ## Build the docs.
 	@$(TOX) -e $@
 
+docs-live:
+	@$(TOX) -e docs -- livehtml
+
 security: ## Security check on project dependencies.
 	@$(TOX) -e $@
-
-pre-commit: ## Run pre-commit on all tracked files.
-	@$(PYTHON) -mpre_commit run --all-files
-	@$(PYTHON) -mpre_commit run --hook-stage push --all-files
-
-pipeline: security format lint test build docs ## Run security, format, lint, test, build and docs.
 
 report: ## Start http server to serve the test report and coverage.
 	@printf "# ---------------------------------------------\n"
@@ -56,9 +54,15 @@ serve: ## Start http server to serve the docs.
 	@printf "Docs: http://localhost:8000\n"
 	@$(PYTHON) -mhttp.server -b 0.0.0.0 -d docs/build/html 8000 > /dev/null
 
-clean: ## Clean temporary files, like python __pycache__, dist build, docs output, and tests reports.
+clean: ## Clean temporary files, like python __pycache__, dist build, docs output, tests reports.
 	@find src tests -regex "^.*\(__pycache__\|\.py[co]\)$$" -delete
 	@rm -rf docs/build dist tests-reports .coverage* .*_cache
+
+pipeline: security lint test build docs ## Run security, lint, test, build, docs.
+
+pre-commit: ## Run all pre-commit hooks.
+	@$(PRE_COMMIT) run --all-files
+	@$(PRE_COMMIT) run --hook-stage push --all-files
 
 # ======================================================= #
 

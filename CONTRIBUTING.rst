@@ -8,43 +8,45 @@ The following elements will allow you to contribute with a little guide to learn
 Table of Contents
 -----------------
 
--  `Contributing <#contributing>`__
+-  `Table of Contents <#table-of-contents>`__
+-  `Code of Conduct <#code-of-conduct>`__
+-  `Getting started <#getting-started>`__
 
-   -  `Table of Contents <#table-of-contents>`__
-   -  `Code of Conduct <#code-of-conduct>`__
-   -  `How to contribute? <#how-to-contribute>`__
+   -  `Pre-requisites <#pre-requisites>`__
+   -  `Clone the repository <#clone-the-repository>`__
+   -  `Environment setup <#environment-setup>`__
 
-      -  `Setup <#setup>`__
+-  `How to contribute? <#how-to-contribute>`__
 
-         -  `Clone the repository <#clone-the-repository>`__
-         -  `Create the environment <#create-the-environment>`__
+   -  `Organization <#organization>`__
 
-      -  `Organization <#organization>`__
+      -  `Report issues <#report-issues>`__
+      -  `Work on issues <#work-on-issues>`__
+      -  `Pull Requests <#pull-requests>`__
+      -  `Release <#release>`__
 
-         -  `Report issues <#report-issues>`__
-         -  `Work on issues <#work-on-issues>`__
-         -  `Pull Requests <#pull-requests>`__
+   -  `Writing code <#writing-code>`__
 
-      -  `Writing code <#writing-code>`__
+      -  `References <#references>`__
+      -  `Quality Assurance <#quality-assurance>`__
 
-         -  `Clean Code <#clean-code>`__
          -  `Development method <#development-method>`__
-         -  `Linters & Formatters <#linters--formatters>`__
+         -  `Lint <#lint>`__
          -  `Tests <#tests>`__
          -  `Security <#security>`__
          -  `Documentation <#documentation>`__
 
-      -  `Git <#git>`__
+   -  `Git <#git>`__
 
-         -  `Ignore <#ignore>`__
-         -  `Hooks <#hooks>`__
-         -  `Pull <#pull>`__
-         -  `Branches <#branches>`__
-         -  `Commit <#commit>`__
+      -  `Ignore <#ignore>`__
+      -  `Hooks <#hooks>`__
+      -  `Pull <#pull>`__
+      -  `Branches <#branches>`__
+      -  `Commit <#commit>`__
 
-            -  `Types <#types>`__
-            -  `Scopes <#scopes>`__
-            -  `Subject <#subject>`__
+         -  `Types <#types>`__
+         -  `Scopes <#scopes>`__
+         -  `Subject <#subject>`__
 
 Code of Conduct
 ---------------
@@ -55,21 +57,29 @@ When you are contributing, keep in mind:
 -  Accept constructive criticism.
 -  Show sympathy for other contributors.
 
-How to contribute?
-------------------
+Getting started
+---------------
 
-Setup
-~~~~~
+Pre-requisites
+~~~~~~~~~~~~~~
+
+We recommended a linux-based distribution.
+You will need the following tools on your system:
+
+- `Git <https://git-scm.com/>`__
+- `Make <https://www.gnu.org/software/make/>`__
+- `Python <https://www.python.org/>`__
+- `Virtualenv <https://virtualenv.pypa.io/>`__
 
 Clone the repository
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 .. code:: bash
 
    git clone git@github.com:cguichard/ispec
 
-Create the environment
-^^^^^^^^^^^^^^^^^^^^^^
+Environment setup
+~~~~~~~~~~~~~~~~~
 
 First, create an isolated Python virtual environment:
 
@@ -97,19 +107,25 @@ mode.
 
 This project uses multiple tools for its development, and your virtual environment
 created earlier is just here to give you a working development environment.
-The tools are handled in sub-virtual environments created by `Tox <https://tox.wiki>`__,
-a virtual env manager and automation tool. The ``install-dev`` only gives you the tools that you will be
-directly using, delegating other installations inside of *Tox* virtual envs.
+Most tools are handled in sub-virtual environments created by `Tox <https://tox.wiki>`__,
+a virtual env manager and automation tool. The ``install-dev`` only gives you the tools
+that you will be directly using, delegating other installations inside of *Tox* virtual envs.
 
 In order to complete the environment setup, you must install some Git Hooks.
-You can refer to the dedicated section of this document:
-`Hooks <#hooks>`__
+You can refer to the dedicated section of this document: `Hooks <#hooks>`__.
+
+How to contribute?
+------------------
 
 Organization
 ~~~~~~~~~~~~
 
 Report issues
 ^^^^^^^^^^^^^
+
+Traceability is necessary for a healthy development environment. Each bug encountered
+must be reported with the creation of an issue. Details on how to reproduce it must be
+provided, and if possible visuals (screenshots) are welcome.
 
 There are two kinds of issue:
 
@@ -118,6 +134,8 @@ There are two kinds of issue:
 
 Click on these links to visit the issue creation page, with a simple
 template to guide you.
+
+Please, remember that a title isn't enough for an issue.
 
 Work on issues
 ^^^^^^^^^^^^^^
@@ -140,10 +158,23 @@ Please follow these guidelines:
 
 If a branch is merged and no longer needed, make sure it was closed.
 
+Release
+^^^^^^^
+
+You can create a release with `make release`. Because we follow a
+`commit convention <#commit>`__, the next version is guessed from the
+commit history. The CHANGELOG is generated automatically too.
+
+Don't forget to push the tags to your origin repo!
+
+.. code:: bash
+
+   git push --tags
+
 Writing code
 ~~~~~~~~~~~~
 
-Clean Code
+References
 ^^^^^^^^^^
 
 Writing clean code is very important for a project. References such as
@@ -178,8 +209,11 @@ You are not alone for this difficult task. In the next sections you will
 find about our recommended development method, our linting and
 formatting tools, and how to use tests.
 
+Quality Assurance
+^^^^^^^^^^^^^^^^^
+
 Development method
-^^^^^^^^^^^^^^^^^^
+''''''''''''''''''
 
 The favored method of development will be TDD (Test Driven
 Development).
@@ -197,10 +231,10 @@ The TDD process can be explained like this:
 
 Repeat…
 
-Linters & Formatters
-^^^^^^^^^^^^^^^^^^^^
+Lint
+''''
 
-To ensure good code writing, we use a lot of lint/validation tools:
+To ensure good code writing, we use a lot of lint tools:
 
 -  `validate-pyproject <https://validate-pyproject.readthedocs.io>`__:
    command line tool and Python library for validating ``pyproject.toml``,
@@ -227,7 +261,7 @@ In order to help you, some formatters are run just before the linters:
 -  `eradicate <https://github.com/myint/eradicate>`__: removes
    commented-out code.
 
-These tools (format & lint) are run with:
+These tools are run with:
 
 .. code:: bash
 
@@ -239,7 +273,7 @@ These tools (format & lint) are run with:
    if at least one error is found.
 
 Tests
-^^^^^
+'''''
 
 We shall always aim for the highest code coverage in our tests, and our
 development environment should use tools that will help us ensure it.
@@ -255,10 +289,10 @@ Run the tests with *make*:
 
 .. note::
 
-   Tests also run before each push, failing it if at least one test fails.
+   Tests are run before each push, failing the push if it fails.
 
 Security
-^^^^^^^^
+''''''''
 
 We use `safety <https://pypi.org/project/safety>`__ to check our Python dependencies
 for potential security vulnerabilities and suggests the proper remediations for
@@ -273,11 +307,14 @@ vulnerabilities detected.
    Security check is run before each push, failing the push if it fails.
 
 Documentation
-^^^^^^^^^^^^^
+'''''''''''''
+
+Doing features is great, but it is useless if nobody knows how to use them.
+Keeping a clean, up-to-date documentation is of high priority.
 
 This project is documented with `Sphinx <https://www.sphinx-doc.org>`__.
 The documentation source can be found in the
-`docs/source <https://github.com/CGuichard/ispec/tree/master/docs/source/>`__ folder.
+`docs/source` folder.
 
 You can build the docs with:
 
@@ -285,16 +322,17 @@ You can build the docs with:
 
    make docs
 
-If you want to clean the docs before building, and serve the docs with
-an http server after the build:
+If you want to build the docs, and serve it with an http server after the build:
 
 .. code:: bash
 
    make docs serve
 
-.. note::
+When writing the docs, use the live server to automatically rebuild the docs.
 
-   Security check is run before each push, failing the push if it fails.
+.. code:: bash
+
+   make docs-live
 
 Git
 ~~~
@@ -331,6 +369,10 @@ that purpose, mandatory tools must be specified in this section.
 Hooks
 ^^^^^
 
+We use `Pre-commit <https://pre-commit.com/>`__ to run tools at specific moments of the Git workflow, with `Git Hooks <https://git-scm.com/docs/githooks>`__.
+It will mostly run linting and formatting tools on the source code in our case. Some tools will also run for yaml, json, or markdown files etc...
+The commitizen tool will also enforce conventional commit usage, that will ne discussed in the `Commit <#commit>`__ section.
+
 To activate our Git Hooks, please run the following commands:
 
 .. code:: bash
@@ -339,7 +381,7 @@ To activate our Git Hooks, please run the following commands:
 
 Our hooks needs the following dependencies:
 
--  Python (>=3.9), Go (>=1.19), pre-commit (~=3.1)
+-  Python (>=3.9), Go (>=1.19), pre-commit (~=3.3)
 
 Pull
 ^^^^
@@ -430,12 +472,12 @@ To keep your local refs to remote branches clean, use:
    git remote prune origin
 
 Here’s one process that you can follow once your local branch was
-pushed, successfully merged into ``develop``, and if you don’t need it
+pushed, successfully merged into ``master``, and if you don’t need it
 anymore:
 
 .. code:: bash
 
-   git switch develop
+   git switch master
    git pull
    git branch -d <my-branch>
    git remote prune origin
@@ -519,7 +561,7 @@ Git then opens an editor to write the commit.
 
 .. code:: text
 
-   type(scope): message less than 70 characters
+   type(scope): message
 
    I am the body of the commit and I am not limited in size.
    However, keep in mind that if the commit needs a large description it may be better to have an issue with it.
