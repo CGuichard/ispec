@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributing &mdash; ispec 0.0.1.dev1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Validators" href="api_reference/validators.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ispec
+          </a>
+              <div class="version">
+                0.0.1.dev1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">For Users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../users/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../users/usage.html">Usage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">For Developers/Contributors</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="api_reference/index.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-of-conduct">Code of Conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-requisites">Pre-requisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clone-the-repository">Clone the repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-setup">Environment setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-contribute">How to contribute?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#organization">Organization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#report-issues">Report issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#work-on-issues">Work on issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pull-requests">Pull Requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#release">Release</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#writing-code">Writing code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quality-assurance">Quality Assurance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#git">Git</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ignore">Ignore</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hooks">Hooks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pull">Pull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#branches">Branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#commit">Commit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/CGuichard/ispec">GitHub Repository</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ispec</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contributing</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/developers/contributing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h1>
+<p>Thank you for wanting to contribute to this project!</p>
+<p>The following elements will allow you to contribute with a little guide to learn how to make an approved contribution. Don’t hesitate to share some new ideas to improve it!</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#table-of-contents">Table of Contents</a></p></li>
+<li><p><a class="reference external" href="#code-of-conduct">Code of Conduct</a></p></li>
+<li><p><a class="reference external" href="#getting-started">Getting started</a></p>
+<ul>
+<li><p><a class="reference external" href="#pre-requisites">Pre-requisites</a></p></li>
+<li><p><a class="reference external" href="#clone-the-repository">Clone the repository</a></p></li>
+<li><p><a class="reference external" href="#environment-setup">Environment setup</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#how-to-contribute">How to contribute?</a></p>
+<ul>
+<li><p><a class="reference external" href="#organization">Organization</a></p>
+<ul>
+<li><p><a class="reference external" href="#report-issues">Report issues</a></p></li>
+<li><p><a class="reference external" href="#work-on-issues">Work on issues</a></p></li>
+<li><p><a class="reference external" href="#pull-requests">Pull Requests</a></p></li>
+<li><p><a class="reference external" href="#release">Release</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#writing-code">Writing code</a></p>
+<ul>
+<li><p><a class="reference external" href="#references">References</a></p></li>
+<li><p><a class="reference external" href="#quality-assurance">Quality Assurance</a></p>
+<ul>
+<li><p><a class="reference external" href="#development-method">Development method</a></p></li>
+<li><p><a class="reference external" href="#lint">Lint</a></p></li>
+<li><p><a class="reference external" href="#tests">Tests</a></p></li>
+<li><p><a class="reference external" href="#security">Security</a></p></li>
+<li><p><a class="reference external" href="#documentation">Documentation</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference external" href="#git">Git</a></p>
+<ul>
+<li><p><a class="reference external" href="#ignore">Ignore</a></p></li>
+<li><p><a class="reference external" href="#hooks">Hooks</a></p></li>
+<li><p><a class="reference external" href="#pull">Pull</a></p></li>
+<li><p><a class="reference external" href="#branches">Branches</a></p></li>
+<li><p><a class="reference external" href="#commit">Commit</a></p>
+<ul>
+<li><p><a class="reference external" href="#types">Types</a></p></li>
+<li><p><a class="reference external" href="#scopes">Scopes</a></p></li>
+<li><p><a class="reference external" href="#subject">Subject</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="code-of-conduct">
+<h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permalink to this heading"></a></h2>
+<p>When you are contributing, keep in mind:</p>
+<ul class="simple">
+<li><p>Remain respectful of different points of view and experiences.</p></li>
+<li><p>Accept constructive criticism.</p></li>
+<li><p>Show sympathy for other contributors.</p></li>
+</ul>
+</section>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading"></a></h2>
+<section id="pre-requisites">
+<h3>Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permalink to this heading"></a></h3>
+<p>We recommended a linux-based distribution.
+You will need the following tools on your system:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://git-scm.com/">Git</a></p></li>
+<li><p><a class="reference external" href="https://www.gnu.org/software/make/">Make</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/">Python</a></p></li>
+<li><p><a class="reference external" href="https://virtualenv.pypa.io/">Virtualenv</a></p></li>
+</ul>
+</section>
+<section id="clone-the-repository">
+<h3>Clone the repository<a class="headerlink" href="#clone-the-repository" title="Permalink to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:cguichard/ispec
+</pre></div>
+</div>
+</section>
+<section id="environment-setup">
+<h3>Environment setup<a class="headerlink" href="#environment-setup" title="Permalink to this heading"></a></h3>
+<p>First, create an isolated Python virtual environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>virtualenv<span class="w"> </span>-p<span class="w"> </span><span class="k">$(</span>which<span class="w"> </span>python3<span class="k">)</span><span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+<span class="c1"># OR</span>
+python3<span class="w"> </span>-mvenv<span class="w"> </span>--upgrade-deps<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+<p>List available commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">help</span>
+</pre></div>
+</div>
+<p>In order to develop in the best conditions, you must install in editable
+mode.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>install-dev
+</pre></div>
+</div>
+<p>This project uses multiple tools for its development, and your virtual environment
+created earlier is just here to give you a working development environment.
+Most tools are handled in sub-virtual environments created by <a class="reference external" href="https://tox.wiki">Tox</a>,
+a virtual env manager and automation tool. The <code class="docutils literal notranslate"><span class="pre">install-dev</span></code> only gives you the tools
+that you will be directly using, delegating other installations inside of <em>Tox</em> virtual envs.</p>
+<p>In order to complete the environment setup, you must install some Git Hooks.
+You can refer to the dedicated section of this document: <a class="reference external" href="#hooks">Hooks</a>.</p>
+</section>
+</section>
+<section id="how-to-contribute">
+<h2>How to contribute?<a class="headerlink" href="#how-to-contribute" title="Permalink to this heading"></a></h2>
+<section id="organization">
+<h3>Organization<a class="headerlink" href="#organization" title="Permalink to this heading"></a></h3>
+<section id="report-issues">
+<h4>Report issues<a class="headerlink" href="#report-issues" title="Permalink to this heading"></a></h4>
+<p>Traceability is necessary for a healthy development environment. Each bug encountered
+must be reported with the creation of an issue. Details on how to reproduce it must be
+provided, and if possible visuals (screenshots) are welcome.</p>
+<p>There are two kinds of issue:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/CGuichard/ispec/issues/new?template=bug_report.md">Bug report</a></p></li>
+<li><p><a class="reference external" href="https://github.com/CGuichard/ispec/issues/new?template=feature_request.md">Feature request</a></p></li>
+</ul>
+<p>Click on these links to visit the issue creation page, with a simple
+template to guide you.</p>
+<p>Please, remember that a title isn’t enough for an issue.</p>
+</section>
+<section id="work-on-issues">
+<h4>Work on issues<a class="headerlink" href="#work-on-issues" title="Permalink to this heading"></a></h4>
+<p>You can work on every open issue. Keep in mind to reference them in your
+commits and pull requests, by following the <a class="reference external" href="https://docs.github.com/en/github/writing-on-github/autolinked-references-and-urls#issues-and-pull-requests">GitHub
+convention</a>.</p>
+<p>You must work on a separate branch for each issue. Check out the <a class="reference external" href="#branches">branch
+naming convention</a>.</p>
+</section>
+<section id="pull-requests">
+<h4>Pull Requests<a class="headerlink" href="#pull-requests" title="Permalink to this heading"></a></h4>
+<p>Please follow these guidelines:</p>
+<ul class="simple">
+<li><p>Use a clear and descriptive title.</p></li>
+<li><p>Include every relevant issue number in the body, not in the title.</p></li>
+<li><p>Give a complete description of every change made in the body.</p></li>
+</ul>
+<p>If a branch is merged and no longer needed, make sure it was closed.</p>
+</section>
+<section id="release">
+<h4>Release<a class="headerlink" href="#release" title="Permalink to this heading"></a></h4>
+<p>You can create a release with <cite>make release</cite>. Because we follow a
+<a class="reference external" href="#commit">commit convention</a>, the next version is guessed from the
+commit history. The CHANGELOG is generated automatically too.</p>
+<p>Don’t forget to push the tags to your origin repo!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</pre></div>
+</div>
+</section>
+</section>
+<section id="writing-code">
+<h3>Writing code<a class="headerlink" href="#writing-code" title="Permalink to this heading"></a></h3>
+<section id="references">
+<h4>References<a class="headerlink" href="#references" title="Permalink to this heading"></a></h4>
+<p>Writing clean code is very important for a project. References such as
+“Clean Code”, by Robert C. Martin, are good to keep in mind. Readable
+code is not a luxury, it is a necessity.</p>
+<p>Let us be reminded of the Zen of Python, by Tim Peters:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren&#39;t special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you&#39;re Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it&#39;s a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let&#39;s do more of those!
+</pre></div>
+</div>
+<p>You are not alone for this difficult task. In the next sections you will
+find about our recommended development method, our linting and
+formatting tools, and how to use tests.</p>
+</section>
+<section id="quality-assurance">
+<h4>Quality Assurance<a class="headerlink" href="#quality-assurance" title="Permalink to this heading"></a></h4>
+<section id="development-method">
+<h5>Development method<a class="headerlink" href="#development-method" title="Permalink to this heading"></a></h5>
+<p>The favored method of development will be TDD (Test Driven
+Development).</p>
+<p>The TDD process can be explained like this:</p>
+<ol class="arabic simple">
+<li><p>Add a test.</p></li>
+<li><p>Run all tests. The new test should fail for expected reasons (failing
+by compilation error doesn’t count as true failing, you must be able
+to compile your code).</p></li>
+<li><p>Write the simplest code that passes the new test.</p></li>
+<li><p>All tests should now pass.</p></li>
+<li><p>Refactor as needed, using tests after each refactors to ensure that
+functionality is preserved</p></li>
+</ol>
+<p>Repeat…</p>
+</section>
+<section id="lint">
+<h5>Lint<a class="headerlink" href="#lint" title="Permalink to this heading"></a></h5>
+<p>To ensure good code writing, we use a lot of lint tools:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://validate-pyproject.readthedocs.io">validate-pyproject</a>:
+command line tool and Python library for validating <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>,
+includes models defined for <code class="docutils literal notranslate"><span class="pre">PEP</span> <span class="pre">517</span></code>, <code class="docutils literal notranslate"><span class="pre">PEP</span> <span class="pre">518</span></code> and <code class="docutils literal notranslate"><span class="pre">PEP</span> <span class="pre">621</span></code>.</p></li>
+<li><p><a class="reference external" href="https://flake8.pycqa.org">flake8</a>: style guide enforcement, with
+the use of ~50 plugins.</p></li>
+<li><p><a class="reference external" href="https://pylint.pycqa.org">pylint</a>: pylint checks for errors, enforces
+a coding standard, looks for code smells, and can make suggestions about
+how the code could be refactored.</p></li>
+<li><p><a class="reference external" href="https://github.com/jendrikseipp/vulture">vulture</a>: finds unused code.</p></li>
+<li><p><a class="reference external" href="https://mypy.readthedocs.io">mypy</a>: static type checker.</p></li>
+<li><p><a class="reference external" href="https://bandit.readthedocs.io">bandit</a>: tool designed to find
+common security issues in Python code.</p></li>
+<li><p><a class="reference external" href="https://xenon.readthedocs.io">xenon</a>: code complexity monitoring tool based on <a class="reference external" href="https://radon.readthedocs.io">radon</a>.</p></li>
+</ul>
+<p>In order to help you, some formatters are run just before the linters:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://black.readthedocs.io">black</a>: code formatter</p></li>
+<li><p><a class="reference external" href="https://pycqa.github.io/isort/">isort</a>: python utility / library
+to sort imports alphabetically, and automatically separated into
+sections and by type.</p></li>
+<li><p><a class="reference external" href="https://github.com/PyCQA/autoflake">autoflake</a>: removes unused
+imports and unused variables.</p></li>
+<li><p><a class="reference external" href="https://github.com/myint/eradicate">eradicate</a>: removes
+commented-out code.</p></li>
+</ul>
+<p>These tools are run with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>format<span class="w"> </span>lint
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All of these are also run for each commit, failing the commit
+if at least one error is found.</p>
+</div>
+</section>
+<section id="tests">
+<h5>Tests<a class="headerlink" href="#tests" title="Permalink to this heading"></a></h5>
+<p>We shall always aim for the highest code coverage in our tests, and our
+development environment should use tools that will help us ensure it.</p>
+<p>The test frameworks used are unittest and pytest, run with tox. Thanks to
+pytest-cov, code coverage is evaluated and fails under 90% of test coverage.</p>
+<p>Run the tests with <em>make</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tests are run before each push, failing the push if it fails.</p>
+</div>
+</section>
+<section id="security">
+<h5>Security<a class="headerlink" href="#security" title="Permalink to this heading"></a></h5>
+<p>We use <a class="reference external" href="https://pypi.org/project/safety">safety</a> to check our Python dependencies
+for potential security vulnerabilities and suggests the proper remediations for
+vulnerabilities detected.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>security
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Security check is run before each push, failing the push if it fails.</p>
+</div>
+</section>
+<section id="documentation">
+<h5>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h5>
+<p>Doing features is great, but it is useless if nobody knows how to use them.
+Keeping a clean, up-to-date documentation is of high priority.</p>
+<p>This project is documented with <a class="reference external" href="https://www.sphinx-doc.org">Sphinx</a>.
+The documentation source can be found in the
+<cite>docs/source</cite> folder.</p>
+<p>You can build the docs with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>docs
+</pre></div>
+</div>
+<p>If you want to build the docs, and serve it with an http server after the build:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>docs<span class="w"> </span>serve
+</pre></div>
+</div>
+<p>When writing the docs, use the live server to automatically rebuild the docs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>docs-live
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="git">
+<h3>Git<a class="headerlink" href="#git" title="Permalink to this heading"></a></h3>
+<section id="ignore">
+<h4>Ignore<a class="headerlink" href="#ignore" title="Permalink to this heading"></a></h4>
+<p>When you want to hide something from Git’s all-seeing eyes, don’t
+stubbornly use the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file. There are three native ways in
+Git to ignore files/folders:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>: Patterns that should be version-controlled and
+distributed to other repositories via clone (i.e., files that all
+developers will want to ignore), to put it bluntly, non-tracked files
+generated by the project lifecycle can be put here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.git/info/exclude</span></code>: Patterns that are specific to a particular
+repository but which do not need to be shared with other related
+repositories (e.g., auxiliary files that live inside the repository
+but are specific to one user’s workflow).</p></li>
+<li><p>Patterns which a user wants Git to ignore in all situations (e.g.,
+backup or temporary files generated by the user’s editor of choice)
+generally go into a file specified by <code class="docutils literal notranslate"><span class="pre">core.excludesFile</span></code> in the
+user’s <code class="docutils literal notranslate"><span class="pre">~/.gitconfig</span></code>.</p></li>
+</ol>
+<p>More details in the full <em>official</em> documentation of Git
+<a class="reference external" href="https://git-scm.com/docs/gitignore">here</a>.</p>
+<p>To summarize, don’t write in the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> files generated by your
+workflow if it is not common to all developers on the project. To serve
+that purpose, mandatory tools must be specified in this section.</p>
+<p><em>There is no mandatory IDE/tool at the moment.</em></p>
+</section>
+<section id="hooks">
+<h4>Hooks<a class="headerlink" href="#hooks" title="Permalink to this heading"></a></h4>
+<p>We use <a class="reference external" href="https://pre-commit.com/">Pre-commit</a> to run tools at specific moments of the Git workflow, with <a class="reference external" href="https://git-scm.com/docs/githooks">Git Hooks</a>.
+It will mostly run linting and formatting tools on the source code in our case. Some tools will also run for yaml, json, or markdown files etc…
+The commitizen tool will also enforce conventional commit usage, that will ne discussed in the <a class="reference external" href="#commit">Commit</a> section.</p>
+<p>To activate our Git Hooks, please run the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pre-commit<span class="w"> </span>install<span class="w"> </span>--install-hooks
+</pre></div>
+</div>
+<p>Our hooks needs the following dependencies:</p>
+<ul class="simple">
+<li><p>Python (&gt;=3.9), Go (&gt;=1.19), pre-commit (~=3.3)</p></li>
+</ul>
+</section>
+<section id="pull">
+<h4>Pull<a class="headerlink" href="#pull" title="Permalink to this heading"></a></h4>
+<p>It is good practice to pull with rebase over a normal pull.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>switch<span class="w"> </span>&lt;your-branch&gt;
+
+<span class="c1"># classic</span>
+git<span class="w"> </span>pull
+
+<span class="c1"># much better</span>
+git<span class="w"> </span>pull<span class="w"> </span>--rebase
+</pre></div>
+</div>
+<p>But do keep in mind that to be able to rebase, you’ll need to have a
+clean state of your repository, with no changes to commit. If that’s not
+the case, you can use <code class="docutils literal notranslate"><span class="pre">stash</span></code> in addition:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>switch<span class="w"> </span>&lt;your-branch&gt;
+git<span class="w"> </span>stash
+git<span class="w"> </span>pull<span class="w"> </span>--rebase
+git<span class="w"> </span>stash<span class="w"> </span>pop
+</pre></div>
+</div>
+<p>If you don’t want to specify <code class="docutils literal notranslate"><span class="pre">--rebase</span></code> each time you pull, configure
+it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>pull.rebase<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>And if you don’t want to manually <code class="docutils literal notranslate"><span class="pre">stash</span></code> at each rebase, you can also
+configure it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>config<span class="w"> </span>--local<span class="w"> </span>rebase.autostash<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+<p>Now each <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> will use <code class="docutils literal notranslate"><span class="pre">--rebase</span></code> and automatically <code class="docutils literal notranslate"><span class="pre">stash</span></code>!</p>
+</section>
+<section id="branches">
+<h4>Branches<a class="headerlink" href="#branches" title="Permalink to this heading"></a></h4>
+<p>Here’s our branch naming convention:</p>
+<ul class="simple">
+<li><p>Immutable branches:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">master</span></code>: our main branch, must have no error.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">develop</span></code>: branch used to work, where you merge your work
+branches.</p></li>
+</ul>
+</li>
+<li><p>Work branches:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;scope&gt;/&lt;short-name&gt;</span></code>: you work here.</p></li>
+</ul>
+</li>
+</ul>
+<p>List of scopes:</p>
+<ul class="simple">
+<li><p><strong>fix</strong>: fix a bug</p></li>
+<li><p><strong>feat</strong>: add a feature</p></li>
+<li><p><strong>docs</strong>: documentation changes</p></li>
+<li><p><strong>refactor</strong>: code refactoring</p></li>
+</ul>
+<p>Those are examples, if you come up with other scopes, you can use them.
+You can also use a scope from our commit convention as a branch scope.</p>
+<p>We will prefer the use of “-” over “_“.</p>
+<p>Example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix/sanitize-paths
+</pre></div>
+</div>
+<p>Don’t forget to delete your local branches when you don’t need them
+anymore.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>&lt;branch-name&gt;
+</pre></div>
+</div>
+<p>To keep your local refs to remote branches clean, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>prune<span class="w"> </span>origin
+</pre></div>
+</div>
+<p>Here’s one process that you can follow once your local branch was
+pushed, successfully merged into <code class="docutils literal notranslate"><span class="pre">master</span></code>, and if you don’t need it
+anymore:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>switch<span class="w"> </span>master
+git<span class="w"> </span>pull
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>&lt;my-branch&gt;
+git<span class="w"> </span>remote<span class="w"> </span>prune<span class="w"> </span>origin
+</pre></div>
+</div>
+<p>You can also use a scope from our commit convention as a branch scope.</p>
+</section>
+<section id="commit">
+<h4>Commit<a class="headerlink" href="#commit" title="Permalink to this heading"></a></h4>
+<p>Based on <a class="reference external" href="https://www.conventionalcommits.org/en/v1.0.0/">Conventional
+Commits</a>.</p>
+<p>Summary :</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;
+</pre></div>
+</div>
+<p>The scope is optional, you can find a simpler form:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;type&gt;: &lt;subject&gt;
+</pre></div>
+</div>
+<p>In order to be concise, type and scope should not be longer than 10
+characters. Limit the first line to 70 characters or less.</p>
+<section id="types">
+<h5>Types<a class="headerlink" href="#types" title="Permalink to this heading"></a></h5>
+<ul class="simple">
+<li><p><strong>build:</strong> Changes that affects the build system or external
+dependencies, such as adding a dependency, or modifying the build
+system.</p></li>
+<li><p><strong>ci:</strong> Changes in CI.</p></li>
+<li><p><strong>chore:</strong> Changes which does not modify the code sources nor the
+tests.</p></li>
+<li><p><strong>docs:</strong> Addition or modification of documentation/comment.</p></li>
+<li><p><strong>style:</strong> Changes that does not affect the sense/meaning of the code
+(space, formatting, semicolon, newline, etc …).</p></li>
+<li><p><strong>typo:</strong> Correction of a typographical problem in the code (example:
+correction of a spelling error in a string).</p></li>
+<li><p><strong>refactor:</strong> Code change that doesn’t fix a bug or add a feature.</p></li>
+<li><p><strong>perf:</strong> Code change that improves performance.</p></li>
+<li><p><strong>feat:</strong> Adding or modifying a feature.</p></li>
+<li><p><strong>fix:</strong> Bug fix.</p></li>
+<li><p><strong>test:</strong> Addition of missing tests or correction of existing tests.</p></li>
+<li><p><strong>revert:</strong> Rollback changes from a previous commit.</p></li>
+</ul>
+</section>
+<section id="scopes">
+<h5>Scopes<a class="headerlink" href="#scopes" title="Permalink to this heading"></a></h5>
+<p>This part is optional, it can be used to define more precisely what is
+impacted. Examples:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>build(wheel): add x to the wheel
+refactor(modulename): change x in y class
+</pre></div>
+</div>
+</section>
+<section id="subject">
+<h5>Subject<a class="headerlink" href="#subject" title="Permalink to this heading"></a></h5>
+<p>This is the content of your commit message. Please follow these rules:</p>
+<ul class="simple">
+<li><p>It starts with a lowercase letter.</p></li>
+<li><p>It does not end with a point.</p></li>
+<li><p>It must be conjugated in the imperative.</p></li>
+<li><p>The message should explain the what and the why, but not how.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;type(scope): message&quot;</span>
+</pre></div>
+</div>
+<p>If you need a longer message, you can add a “body” to the commit.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>commit
+</pre></div>
+</div>
+<p>Git then opens an editor to write the commit.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>type(scope): message
+
+I am the body of the commit and I am not limited in size.
+However, keep in mind that if the commit needs a large description it may be better to have an issue with it.
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api_reference/validators.html" class="btn btn-neutral float-left" title="Validators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Clément GUICHARD &lt;clement.guichard0@gmail.com&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
